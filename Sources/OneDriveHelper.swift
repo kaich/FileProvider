@@ -234,6 +234,7 @@ extension OneDriveFileProvider {
             finalRange = 0..<min(maximumSize, size)
         }
         request.setValue(contentRange: finalRange, totalBytes: size)
+        request.setValue(nil, forHTTPHeaderField: "Authorization")
         
         let data: Data
         do {
